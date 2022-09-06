@@ -237,8 +237,8 @@ footer {
 
 .flex-footer {
   width: 70%;
-  margin: 50px auto;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: space-between;
+  margin: 0;
 }
