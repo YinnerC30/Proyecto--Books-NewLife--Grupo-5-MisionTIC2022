@@ -246,7 +246,7 @@ a {
     width: 100%;
     font-size: 16px;
     font-weight: 500;
-    text-transform: capitalize;
+    text-transform:initial;
     font-family: inherit;
     cursor: pointer;
     border-radius: 25px;
