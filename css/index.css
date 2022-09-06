@@ -223,6 +223,11 @@ input[type='submit']:hover {
   clear: both;
 }
 
+#subject {
+  max-height: 100px;
+  resize: none;
+}
+
 footer {
   width: 100%;
   height: 150px;
