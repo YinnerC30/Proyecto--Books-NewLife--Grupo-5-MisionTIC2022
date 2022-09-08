@@ -1,7 +1,7 @@
 :root {
   --main-bg-color: white;
   --secondary-color: #1a272f;
-  --primary-font: 'Anek Telugu', sans-serif;
+  --primary-font: "Anek Telugu", sans-serif;
   --box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
     0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -178,7 +178,7 @@ li a:hover {
   display: grid;
 }
 
-input[type='text'],
+input[type="text"],
 select,
 textarea {
   width: 100%;
@@ -189,7 +189,7 @@ textarea {
   resize: vertical;
 }
 
-input[type='submit'] {
+input[type="submit"] {
   background-color: #04aa6d;
   color: white;
   padding: 12px 20px;
@@ -197,7 +197,7 @@ input[type='submit'] {
   cursor: pointer;
 }
 
-input[type='submit']:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
@@ -218,7 +218,7 @@ input[type='submit']:hover {
 
 /* Clear floats after the columns */
 .row:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -239,6 +239,7 @@ footer {
   width: 70%;
   position: absolute;
   display: flex;
+  font-size: 18px;
   justify-content: space-between;
   margin: 0;
 }
