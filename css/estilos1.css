@@ -259,6 +259,27 @@ a {
     overflow: hidden;
 }
 
+
+.form-content .btn-2 {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform:initial;
+    font-family: inherit;
+    cursor: pointer;
+    user-select: none;
+    background: linear-gradient(to right, #5cc1a3, #8d9190);
+    border: none;
+    color: var(--tex-white);
+    z-index: 1;
+    overflow: hidden;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    border-radius: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .form-content .botones{
     padding-bottom: 10px;
 }
