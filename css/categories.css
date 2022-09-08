@@ -9,7 +9,7 @@ body {
 :root {
   --main-bg-color: white;
   --secondary-color: #1a272f;
-  --primary-font: 'Anek Telugu', sans-serif;
+  --primary-font: "Anek Telugu", sans-serif;
   --box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
     0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
