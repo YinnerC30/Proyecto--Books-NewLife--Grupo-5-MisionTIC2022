@@ -18,12 +18,16 @@
     {% comment %} boostrap {% endcomment %}
 
     <link rel="stylesheet" href="{% static 'styles/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/footer.css' %}" />
+    {% block links %}{% endblock links %}
 
     <title>Books-Newlife</title>
   </head>
   <body>
-    {% include 'layouts/partials/navbar.html' %}
-    <main>{% block mainblock %}{% endblock mainblock %}</main>
+    {% include 'layouts/partials/navbar.html' %} {% block mainblock %}
+    {%endblock mainblock %}
+    <!---->
+    {% include 'Layouts/partials/footer.html' %}
 
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
