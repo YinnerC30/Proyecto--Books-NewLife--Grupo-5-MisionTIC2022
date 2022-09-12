@@ -1,5 +1,9 @@
+body {
+  width: 100%;
+}
+
 * {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .navbar {

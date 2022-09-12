@@ -1,0 +1,24 @@
+footer {
+  width: 100%;
+  box-shadow: -1px -31px 42px -13px rgba(0, 0, 0, 0.27);
+  -webkit-box-shadow: -1px -31px 42px -13px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: -1px -31px 42px -13px rgba(0, 0, 0, 0.27);
+  position: absolute;
+  bottom: 0;
+}
+
+.flex-footer {
+  display: flex;
+  height: 100px;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-around;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.flex-footer li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+}
