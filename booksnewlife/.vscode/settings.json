@@ -5,7 +5,7 @@
     "jinja-html": "html"
   },
   "[django-html]": {
-    "editor.defaultFormatter": "HookyQR.beautify",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.quickSuggestions": {
       "comments": true,
       "other": true,
