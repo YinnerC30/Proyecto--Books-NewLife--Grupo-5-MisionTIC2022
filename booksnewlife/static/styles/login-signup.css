@@ -35,3 +35,14 @@ a {
   color: aqua;
   background-color: black;
 }
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.signup-input {
+  margin: 5px;
+}
