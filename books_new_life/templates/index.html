@@ -17,10 +17,13 @@
       {% for book in object_list %} <br />
 
       <div class="book">
-        <img src="{{book.libro_img}}" alt="" />
+        <a href="{% url 'book_details' book.pk %}"
+          ><img src="{{book.libro_img}}" alt=""
+        /></a>
         <div class="info">
           <h4>{{book.titulo}}</h4>
           <p><b>Autor:</b> {{book.autor}}</p>
+          <p><b>Estado:</b> {{book.estado}}</p>
           <p class="card-user">
             <a href=""><b>Subido por:</b> {{book.usuario}}</a>
           </p>

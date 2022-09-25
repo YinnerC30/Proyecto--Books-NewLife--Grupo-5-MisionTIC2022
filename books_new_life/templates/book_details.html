@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %} <br />
+
+{% block mainblock %}
+<div class="details-box">
+  <div class="titulo-img">
+    <h2>{{object.titulo}}</h2>
+    <img src="{{object.libro_img}}" alt="" />
+  </div>
+  <ul>
+    <li>Usuario: {{object.usuario}}</li>
+  </ul>
+  <p>{{object.reseña}}</p>
+</div>
+
+{% endblock mainblock %}

@@ -56,12 +56,20 @@
 
     <ul class="navbar-nav mr-auto">
       {% if user.is_authenticated %}
+      
+     
       <li class="nav-item">
+   
+        </a>
         <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
-      </li>
 
-      {% else %}
+      </li> <li class="navitem"><a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a></li>
       <li class="nav-item active">
+      </li> <li class="navitem"><a href="{% url 'add_book' %}" class="nav-link">Editar Libro</a></li>
+      <li class="nav-item active">
+
+      {% else %} 
+     
         <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
       </li>
       <li class="nav-item">

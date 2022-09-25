@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %} <br />
+
+{% block mainblock %}
+<h2>Publicar libro</h2>
+<form action="" method="POST">
+  <br />
+  {% csrf_token %} <br />
+  {{form.as_p}}
+  <button type="submit">Actuliazar</button>
+</form>
+{% endblock mainblock %}
