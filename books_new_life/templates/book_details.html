@@ -5,13 +5,14 @@
   <div class="titulo-img">
     <h2>{{object.titulo}}</h2>
     <a href="{% url 'update_book' object.pk %}">Editar</a>
+    <a href="{% url 'delete_book' object.pk %}">borrar</a>
     <img src="{{object.libro_img}}" alt="" />
   </div>
   <ul>
     <li>Usuario: {{object.usuario}}</li>
     <li>Subido :{{object.fecha}}</li>
   </ul>
-  <p>{{object.reseña|safe}}</p>
+  <p>{{object.reseña|linebreaks}}</p>
 </div>
 
 {% endblock mainblock %}

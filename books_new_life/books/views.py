@@ -21,7 +21,6 @@ class Add_BookView(CreateView):
 
     model = Books
     template_name = 'add_book.html'
-    fields = '__all__'
 
 
 class Update_bookView(UpdateView):
