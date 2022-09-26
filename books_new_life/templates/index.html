@@ -26,6 +26,21 @@
           <p><b>Estado:</b> {{book.estado}}</p>
           <p class="card-user">
             <a href=""><b>Subido por:</b> {{book.usuario}}</a>
+
+            {% if user.is_authenticated %}
+            
+             <div>
+              <a href="{% url 'update_book' book.pk %}">Editar</a>
+            <a href="{% url 'delete_book' book.pk %}">Borrar</a>
+           </div>
+            {% endif %}
+           
+           
+            
+           
+
+
+            <p>{{book.pk}}</p>
           </p>
         </div>
       </div>

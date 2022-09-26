@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Books
+from .forms import AddBookform
 
 
 class IndexView(ListView):
     model = Books
     template_name = 'index.html'
+    ordering = ['-fecha']
 
 
 class BookdetailsView(DetailView):
@@ -14,17 +17,20 @@ class BookdetailsView(DetailView):
 
 
 class Add_BookView(CreateView):
+    form_class = AddBookform
+
     model = Books
     template_name = 'add_book.html'
-    fields = ('usuario', 'titulo', 'categoria',
-              'estado', 'autor', 'reseña', 'libro_img')
+    fields = '__all__'
 
 
 class Update_bookView(UpdateView):
-    model = Books
     template_name = 'update_book.html'
-    fields = '__all__'
+    fields = ['titulo', 'reseña', 'autor']
+    book = Books.objects.all()
 
-    def get_queryset(self):
-        user = self.request.user
-        return Books.objects.filter(name=user)
+
+class DeleteBookView(DeleteView):
+    model = Books
+    template_name = 'delete_book.html'
+    success_url = reverse_lazy('index')

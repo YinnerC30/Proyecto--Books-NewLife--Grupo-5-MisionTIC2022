@@ -4,12 +4,14 @@
 <div class="details-box">
   <div class="titulo-img">
     <h2>{{object.titulo}}</h2>
+    <a href="{% url 'update_book' object.pk %}">Editar</a>
     <img src="{{object.libro_img}}" alt="" />
   </div>
   <ul>
     <li>Usuario: {{object.usuario}}</li>
+    <li>Subido :{{object.fecha}}</li>
   </ul>
-  <p>{{object.reseña}}</p>
+  <p>{{object.reseña|safe}}</p>
 </div>
 
 {% endblock mainblock %}

@@ -2,7 +2,7 @@
 
 {% block mainblock %}
 <h2>Publicar libro</h2>
-<form action="" method="POST">
+<form method="POST">
   <br />
   {% csrf_token %} <br />
   {{form.as_p}}
