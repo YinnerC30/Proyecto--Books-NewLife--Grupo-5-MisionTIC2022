@@ -17,8 +17,8 @@
       {% for book in object_list %} <br />
 
       <div class="book">
-        <a href="{% url 'book_details' book.pk %}"
-          ><img src="{{book.libro_img}}" alt=""
+        <a href="{% url 'book_details' book.pk %} "target='_blank' alt=""
+          ><img src="{{book.libro_img}}" 
         /></a>
         <div class="info">
           <h4>{{book.titulo}}</h4>
@@ -53,6 +53,7 @@
 </section>
 
 <section id="section-3">
+  
   <h3>Usuarios destacados</h3>
   <div class="featured-flex">
     <div class="featured-users">

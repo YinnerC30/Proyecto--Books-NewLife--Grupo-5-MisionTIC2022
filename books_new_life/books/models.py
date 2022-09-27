@@ -9,30 +9,10 @@ from datetime import date, datetime
 
 class Books(models.Model):
 
-    class Estado(models.TextChoices):
-        Excelente = ('Excelente', 'Excelente')
-        Bueno = ('Bueno', 'Bueno')
-        Regular = ('Regular', 'Regular')
-
-    class Categorias(models.TextChoices):
-
-        cientifico = ('Cientifico', 'Cientifico')
-        literatura = ('Literatura', 'Literatura')
-        biografia = ('Biografia', 'Biografia')
-        libro_texto = ('Libro de texto', 'Libro de texto')
-        monografia = ('Monografia', 'Monografia')
-        poeticos = ('Poeticos', 'Poeticos')
-        juveniles = ('Juveniles', 'Juveniles')
-        ficcion = ('Ficcion', 'Ficcion')
-        comedia = ('Comedia', 'Comedia')
-        leyendas = ('Leyenda', 'Leyenda')
-        epopeya = ('Epopeya', 'Epopeya')
-        fabula = ('Fabula', 'Fabula')
-
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=200)
-    categoria = models.CharField(max_length=200, choices=Categorias.choices)
-    estado = models.CharField(max_length=15, choices=Estado.choices)
+    categoria = models.CharField(max_length=200)
+    estado = models.CharField(max_length=15)
     autor = models.CharField(max_length=200)
     reseña = models.TextField()
     libro_img = models.ImageField(null=True, blank=True, upload_to="images/")

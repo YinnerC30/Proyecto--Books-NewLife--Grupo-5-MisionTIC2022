@@ -14,9 +14,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home</a>
-      </li>
+
+      {% if categories_menu %}
 
       <li class="nav-item dropdown">
         <a
@@ -31,16 +30,19 @@
           Categorias
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Accion</a>
-          <a class="dropdown-item" href="#">Drama</a>
-          <a class="dropdown-item" href="#">Medicina</a>
-          <a class="dropdown-item" href="#">Filosofia</a>
-          <a class="dropdown-item" href="#">Ficcion</a>
-          <a class="dropdown-item" href="#">Manga</a>
+          {% for category in categories_menu  %}
+          <a class="dropdown-item" href="{% url 'category' category|slugify %}">{{category}}</a>
+          {% endfor %}
+
+
+          
+         
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Mas categorias</a>
         </div>
-      </li>
+      </li><br>
+       {% endif %}
+
     </ul>
     <form class="form-inline my-2 my-lg-0 search">
       <input
@@ -66,7 +68,7 @@
       </li> <li class="navitem"><a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a></li>
       <li class="nav-item active">
 
-      {% else %} 
+      {% else %}   
      
         <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
       </li>

@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %} <br />
+
+{% load static %} <br />
+{% block links %}
+<link rel="stylesheet" href="{% static '/styles/index_.css' %}" />
+{% endblock links %} <br />
+
+{% block mainblock %} <br />
+
+
+{% if category_books %}
+{{cat}} <br />
+<div id="books-main">
+     <div class="books-flex">
+      <br />
+
+      {% for book in category_books %} <br />
+
+      <div class="book">
+        <a href="{% url 'book_details' book.pk %} "target='_blank' alt=""
+          ><img src="{{book.libro_img}}" 
+        /></a>
+        <div class="info">
+          <h4>{{book.titulo}}</h4>
+          <p><b>Autor:</b> {{book.autor}}</p>
+          <p><b>Estado:</b> {{book.estado}}</p>
+          <p class="card-user">
+            <a href=""><b>Subido por:</b> {{book.usuario}}</a>
+
+            {% if user.is_authenticated %}
+            
+             <div>
+              <a href="{% url 'update_book' book.pk %}">Editar</a>
+            <a href="{% url 'delete_book' book.pk %}">Borrar</a>
+           </div>
+            {% endif %}
+           
+           
+            
+           
+
+
+            
+          </p>
+        </div>
+      </div>
+
+      <br />
+      {% endfor %}
+      <br />
+    </div>
+  </div>
+
+  {% else %}
+  <h2>esta pagina no existe no sea necio</h2>
+{% endif %}
+{% endblock mainblock %}
