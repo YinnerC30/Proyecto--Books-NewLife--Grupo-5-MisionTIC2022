@@ -1,9 +1,10 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import Books, Categorias
 from .forms import AddBookform
+from django.http import HttpResponseRedirect
 
 
 class IndexView(ListView):
@@ -52,3 +53,10 @@ def CategoryView(request, cat):
 
     return render(request, 'categories.html', {'cat': cat,
                                                'category_books': category_books})
+
+
+def Likeview(request, pk):
+    book = get_object_or_404(Books, id=request.POST.get('book_id'))
+    book.likes.add(request.user)
+
+    return HttpResponseRedirect(reverse('book_details', args=[str(pk)]))
