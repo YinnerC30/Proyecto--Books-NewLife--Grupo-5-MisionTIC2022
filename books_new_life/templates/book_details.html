@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %} <br />
+
+{% block mainblock %}
+<div class="details-box">
+  <p>logeado:{{user.id}}</p>
+  <p>creador:{{object.usuario_id}}</p>
+  <div class="titulo-img">
+    <h2>{{object.titulo}}</h2>
+
+    {% if user.id == object.usuario_id %}
+    <div>
+      <a href="{% url 'update_book' object.pk %}">Editar</a>
+      <a href="{% url 'delete_book' object.pk %}">borrar</a>
+    </div>
+    {% endif %} <br />
+
+    <img src="{{object.libro_img}}" alt="" />
+    <a href="{% url 'category' object.categoria %}"
+      >{{object.categoria|slugify}}</a
+    >
+  </div>
+  <ul>
+    <li>Usuario: {{object.usuario}}</li>
+    <li>Subido :{{object.fecha}}</li>
+  </ul>
+  <p>{{object.reseña|linebreaks}}</p>
+</div>
+
+{% endblock mainblock %}
