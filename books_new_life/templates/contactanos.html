@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %} {% block mainblock %}
+<h2>Contactanos</h2>
+<hr />
+<form action="{% url 'contactanos' %}" method="POST">
+  <table>
+    {% csrf_token %} 
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Enviar" />
+</form>
+{% endblock %}
