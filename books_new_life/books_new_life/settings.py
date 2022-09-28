@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'books',
     'miembros',
     'ckeditor',
+    'feedback',
 ]
 
 MIDDLEWARE = [
