@@ -22,9 +22,22 @@
   <form>
     {% csrf_token %}
     <h3>Hola {{user.first_name|title}} {{user.last_name|title}}</h3>
+
+    {% if user.profile.profile_pic %}
+
     <a title="Imagen" href="#"
       ><img src="/media/{{user.profile.profile_pic}}" alt="Imagen usuario"
     /></a>
+    {% else %}
+    <a
+      ><img
+        src="{% static 'images/default_images/default-avatar.png' %}"
+        alt="Imagen usuario"
+      />
+    </a>
+
+    {% endif %}
+
     <div class="flex">
       <div class="inputBox">
         <span>Nombre de usuario:</span>
