@@ -28,3 +28,4 @@ class PasswordChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('index')
     template_name = 'registration/changepassword.html'
+

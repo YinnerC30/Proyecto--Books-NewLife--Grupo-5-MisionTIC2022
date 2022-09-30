@@ -32,11 +32,15 @@ class Add_BookView(CreateView):
     model = Books
     template_name = 'add_book.html'
 
+    def form_valid(self, form):
+        form.instance.usuario_id = self.request.user.pk
+        return super().form_valid(form)
+
 
 class Update_bookView(UpdateView):
+    form_class = AddBookform
     model = Books
     template_name = 'update_book.html'
-    fields = ['titulo', 'reseña', 'autor']
 
 
 class DeleteBookView(DeleteView):
@@ -46,11 +50,8 @@ class DeleteBookView(DeleteView):
 
 
 def CategoryView(request, cat):
-    args = {}
+
     category_books = Books.objects.filter(categoria=cat.replace('-', " "))
-
-    print(category_books)
-
     return render(request, 'categories.html', {'cat': cat,
                                                'category_books': category_books})
 

@@ -30,7 +30,7 @@
           Categorias
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          {% for category in categories_menu  %}
+          {% for category in categories_menu|slice:"10"  %}
           <a class="dropdown-item" href="{% url 'category' category|slugify %}">{{category}}</a>
           {% endfor %}
 

@@ -32,10 +32,7 @@ class AddBookform(forms.ModelForm):
     autor = forms.CharField(max_length=100, label='', widget=forms.TextInput(
         attrs={'placeholder': 'Autor', 'class': 'form-input'}), )
 
-    reseña = forms.CharField(max_length=800, label='', widget=forms.Textarea(
-        attrs={'placeholder': 'Agrega una breve reseña...', 'class': 'form-input'}), )
-
     class Meta:
         model = Books
-        fields = ('usuario', 'titulo', 'categoria',
+        fields = ('titulo', 'categoria',
                   'estado', 'autor', 'reseña', 'libro_img')
