@@ -1,8 +1,9 @@
 {% extends 'layouts/base.html' %} <br />
 
-{% load static %} <br />
+{% load static %} <br/>
 {% block links %}
 <link rel="stylesheet" href="{% static '/styles/index_.css' %}" />
+<link rel="stylesheet" href="{% static '/styles/categoria.css' %}">
 {% endblock links %} <br />
 
 {% block mainblock %} <br />
@@ -16,7 +17,6 @@
       <br />
 
       {% for book in category_books %} <br />
-
       <div class="book">
         <a href="{% url 'book_details' book.pk %} "target='_blank' alt=""
           ><img src="/media/{{book.libro_img}}" 
@@ -27,25 +27,15 @@
           <p><b>Estado:</b> {{book.estado}}</p>
           <p class="card-user">
             <a href=""><b>Subido por:</b> {{book.usuario}}</a>
-
             {% if user.is_authenticated %}
-            
              <div>
               <a href="{% url 'update_book' book.pk %}">Editar</a>
             <a href="{% url 'delete_book' book.pk %}">Borrar</a>
            </div>
             {% endif %}
-           
-           
-            
-           
-
-
-            
           </p>
         </div>
       </div>
-
       <br />
       {% endfor %}
       <br />
