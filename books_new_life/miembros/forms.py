@@ -2,6 +2,7 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Profile
 
 
 class SignUpForm(UserCreationForm):
@@ -52,3 +53,19 @@ class UserEditForm(UserChangeForm):
 #     class Meta:
 #         model = User
 #         fields = ('username', 'password')
+
+class ProfileForm(forms.ModelForm):
+    descripcion = forms.CharField(max_length=100, label='Descripcion', widget=forms.Textarea())
+    profile_pic = forms.ImageField(label='Foto de perfil', widget=forms.FileInput())
+    departamento = forms.CharField(max_length=100, label='Departamento', widget=forms.TextInput())
+    poblacion = forms.CharField(max_length=100, label='Poblacion', widget=forms.TextInput())
+    telefono = forms.CharField(max_length=100, label='Telefono', widget=forms.TextInput())
+    whatsApp = forms.CharField(max_length=100, label='WhatsApp', widget=forms.TextInput())
+    facebook = forms.CharField(max_length=100, label='Facebook', widget=forms.TextInput())
+
+    class Meta:
+        model = Profile
+        fields = '__all__'
+        # widgets = {
+        #     'bio': forms.Textarea(attrs={'class': 'form-control'}),
+        # }
