@@ -50,10 +50,12 @@ class DeleteBookView(DeleteView):
 
 
 def CategoryView(request, cat):
+    categories_menu = Categorias.objects.all()
 
     category_books = Books.objects.filter(categoria=cat.replace('-', " "))
     return render(request, 'categories.html', {'cat': cat,
-                                               'category_books': category_books})
+                                               'category_books': category_books,
+                                               'categories_aside': categories_menu})
 
 
 def Likeview(request, pk):

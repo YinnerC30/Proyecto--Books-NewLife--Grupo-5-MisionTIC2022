@@ -1,0 +1,147 @@
+{% extends 'layouts/base.html' %} <br />
+{% load static %} <br />
+
+{% block links %}
+<link rel="stylesheet" href="{% static '/styles/index_.css' %}" />
+{% endblock links %} <br />
+
+{% block mainblock %}
+
+<section id="section-2">
+  <div id="books-main">
+    <h3>Libros Destacados</h3>
+
+    <div class="books-flex">
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_2.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_3.jpeg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_4.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_5.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_6.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_7.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_8.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_9.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_10.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_11.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_9.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_10.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_11.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_9.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_10.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_11.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_9.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_10.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_11.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_9.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_10.jpg' %}" alt="" />
+      </div>
+      <div class="book">
+        <img class="book-image" src="{% static 'images/img_11.jpg' %}" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="section-3">
+  <h3>Usuarios destacados</h3>
+  <div class="featured-flex">
+    <div class="featured-users">
+      <img src="{% static 'images/user3.png' %}" alt="" />
+      <div class="user-description">
+        <h2>Elon Musk</h2>
+        <i>21 intercambios</i>
+      </div>
+    </div>
+
+    <div class="featured-users">
+      <img src="{% static 'images/user3.png' %}" alt="" />
+      <div class="user-description">
+        <h2>Elon Musk</h2>
+        <i>21 intercambios</i>
+      </div>
+    </div>
+    <div class="featured-users">
+      <img src="{% static 'images/user3.png' %}" alt="" />
+      <div class="user-description">
+        <h2>Elon Musk</h2>
+        <i>21 intercambios</i>
+      </div>
+    </div>
+    <div class="featured-users">
+      <img src="{% static 'images/user3.png' %}" alt="" />
+      <div class="user-description">
+        <h2>Elon Musk</h2>
+        <i>21 intercambios</i>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-4">
+  <h2>Contactanos</h2>
+  <p>Dejanos tu mensaje o sugerencia:</p>
+
+  <div class="column">
+    <form action="/index.html">
+      <label for="fname">Nombre</label>
+      <input type="text" id="fname" name="firstname" placeholder="Tu nombre" />
+
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="india">Colombia</option>
+        <option value="australia">Argentina</option>
+        <option value="canada">Chile</option>
+        <option value="usa">USA</option>
+        <option value="usa">Otro</option>
+      </select>
+      <label for="subject">Mensaje</label>
+      <textarea
+        id="subject"
+        name="subject"
+        placeholder="Escribe algo"
+      ></textarea>
+      <input type="submit" value="Enviar" />
+    </form>
+  </div>
+</div>
+
+{% endblock mainblock %}
