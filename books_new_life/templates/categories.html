@@ -8,41 +8,57 @@
 
 {% block mainblock %} <br />
 
+<div class="box-list">
+  <h5>Categorias:</h5>
+  <ul>
+    {% for category in categories_aside  %}
+    <li class="category-li"><a href="{% url 'category' category|slugify %}"><span>{{category}}</span></a></li>
+    {% endfor %}
+      
+      
+  </ul>
+</div>
 
 {% if category_books %}
-<h1>{{cat}}</h1>
- <br />
-<div id="books-main">
-     <div class="books-flex">
-      <br />
 
-      {% for book in category_books %} <br />
-      <div class="book">
-        <a href="{% url 'book_details' book.pk %} "target='_blank' alt=""
-          ><img src="/media/{{book.libro_img}}" 
-        /></a>
-        <div class="info">
-          <h4>{{book.titulo}}</h4>
-          <p><b>Autor:</b> {{book.autor}}</p>
+<div class="contenido">
+<h2 class="deal"><span>{{cat|title}}</span></h2>
+<div class="books-flex"> 
+
+
+
+
+
+
+  {% for book in category_books  %}
+  
+  <div class="book">
+      <a href="{% url 'book_details' book.pk %}" target="_blank" alt="">
+        <img src="/media/{{book.libro_img}}">
+      </a>
+
+      <div class="info">
+          <h4>{{book.titulo|title}}</h4>
+          <p><b>Autor:</b>{{book.autor}}</p>
           <p><b>Estado:</b> {{book.estado}}</p>
-          <p class="card-user">
-            <a href=""><b>Subido por:</b> {{book.usuario}}</a>
-            {% if user.is_authenticated %}
-             <div>
-              <a href="{% url 'update_book' book.pk %}">Editar</a>
-            <a href="{% url 'delete_book' book.pk %}">Borrar</a>
-           </div>
-            {% endif %}
-          </p>
+          <p class="card-user"><b>Subido por: </b><a href="">{{book.usuario}}</a></p>
         </div>
-      </div>
-      <br />
-      {% endfor %}
-      <br />
-    </div>
+ 
+
+
   </div>
+  {% endfor %}
+
+
+  
+
+  <br>
+  <br>
+  <br>
+</div>
+</section>
 
   {% else %}
-  <h2>esta pagina no existe no sea necio</h2>
+  <h>No hay libros publicados en  esta categoria</h2>
 {% endif %}
 {% endblock mainblock %}

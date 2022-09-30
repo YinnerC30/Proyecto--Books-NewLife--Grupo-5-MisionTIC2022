@@ -34,7 +34,7 @@
     <li>Usuario: {{object.usuario}}</li>
     <li>Subido :{{object.fecha}}</li>
   </ul>
-  <p>{{object.reseña|linebreaks}}</p>
+  <p>{{object.reseña|safe}}</p>
 </div>
 
 {% endblock mainblock %}

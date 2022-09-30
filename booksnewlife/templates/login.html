@@ -1,0 +1,25 @@
+{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+{% block links %}
+
+<link rel="stylesheet" href="{% static '/styles/login-signup.css' %}" />
+{% endblock links %} <br />
+{% block mainblock %}
+
+<section class="form-main">
+  <div class="form-content">
+    <div class="box">
+      <h3>Bienvenido</h3>
+
+      <form action="" method="POST">
+        {% csrf_token %} {{form}}
+        <button type="submit" class="btn main-btn">Iniciar Sesion</button>
+      </form>
+      <p>
+        ¿No tienes una cuenta?
+        <a href="{% url 'signup' %}" class="gradient-text">Crear cuenta</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock mainblock %}

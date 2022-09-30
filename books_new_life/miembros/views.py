@@ -29,3 +29,8 @@ class PasswordChangeView(PasswordChangeView):
     success_url = reverse_lazy('index')
     template_name = 'registration/changepassword.html'
 
+
+def ProfileView(request):
+    user = request.user
+
+    return render(request, 'profile.html', {'user': user})
