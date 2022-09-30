@@ -1,5 +1,10 @@
 {% extends 'layouts/base.html' %} 
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'styles/feedback.css' %}" />
+{% endblock links %}
 {% block mainblock %}
 <h1>¡Se ha enviado correctamente el comentario!</h1>
+<img src="icons/comprobado.png">
 <p>{{nombre}} muchas gracias por intentar contactarte con nosotros, leeremos tu comentario y tendremos en cuenta tu sugerencia para mejorar nuestra aplicación.</p>
 {% endblock %}
