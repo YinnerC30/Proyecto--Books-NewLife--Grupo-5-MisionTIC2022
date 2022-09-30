@@ -26,7 +26,7 @@
           <p><b>Autor:</b> {{book.autor}}</p>
           <p><b>Estado:</b> {{book.estado}}</p>
           <p class="card-user">
-            <a href=""><b>Subido por:</b> {{book.usuario}}</a>
+            <a href=""><b>Subido por:{{book.usuario}}</b> {{book.usuario}}</a>
 
             {% if user.is_authenticated %}
             
