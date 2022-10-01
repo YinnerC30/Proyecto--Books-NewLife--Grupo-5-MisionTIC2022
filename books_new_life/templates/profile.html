@@ -40,16 +40,27 @@
 
     <div class="flex">
       <div class="inputBox">
+        {% comment %} {{form.descripcion}} {% endcomment %}
         <span>Nombre de usuario:</span>
         {{user.username}}
         <span>Nombre:</span>
         {{user.first_name|title}}
-      </div>
-      <div class="inputBox">
         <span>Apellido:</span>
         {{user.last_name|title}}
         <span>Correo electronico:</span>
         {{user.email}}
+      </div>
+      <div class="inputBox">
+        <span>Departamento:</span>
+        {{user.profile.departamento|title}}
+        <span>Población:</span>
+        {{user.profile.poblacion|title}}
+        <span>Telefono:</span>
+        {{user.profile.telefono|title}}
+        <span>WhatsApp:</span>
+        {{user.profile.whatsApp|title}}
+        <span>Facebook:</span>
+        {{user.profile.facebook|title}}
       </div>
     </div>
     <a href="" class="delete-btn">Mis libros subidos</a>
