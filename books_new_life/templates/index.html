@@ -17,30 +17,15 @@
       {% for book in object_list %} <br />
 
       <div class="book">
-        <a href="{% url 'book_details' book.pk %} "target='_blank' alt=""
-          ><img src="media/{{book.libro_img}}" 
+        <a href="{% url 'book_details' book.pk %} " target="_blank" alt=""
+          ><img src="media/{{book.libro_img}}"
         /></a>
         <div class="info">
           <h4>{{book.titulo}}</h4>
           <p><b>Autor:</b> {{book.autor}}</p>
           <p><b>Estado:</b> {{book.estado}}</p>
           <p class="card-user">
-            <a href=""><b>Subido por:</b> {{book.usuario}}</a>
-
-            {% if user.is_authenticated %}
-            
-             <div>
-              <a href="{% url 'update_book' book.pk %}">Editar</a>
-            <a href="{% url 'delete_book' book.pk %}">Borrar</a>
-           </div>
-            {% endif %}
-           
-           
-            
-           
-
-
-            
+            <b>Subido por:</b><a href=""> {{book.usuario}}</a>
           </p>
         </div>
       </div>
@@ -53,7 +38,6 @@
 </section>
 
 <section id="section-3">
-  
   <h3>Usuarios destacados</h3>
   <div class="featured-flex">
     <div class="featured-users">
@@ -87,7 +71,8 @@
     </div>
   </div>
 </section>
-{% comment %} <div class="section-4">
+{% comment %}
+<div class="section-4">
   <h2>Contactanos</h2>
   <p>Dejanos tu mensaje o sugerencia:</p>
 
@@ -113,6 +98,5 @@
       <input type="submit" value="Enviar" />
     </form>
   </div>
-</div> {% endcomment %}
-
-{% endblock mainblock %}
+</div>
+{% endcomment %} {% endblock mainblock %}

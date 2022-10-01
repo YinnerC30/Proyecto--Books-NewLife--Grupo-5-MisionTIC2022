@@ -1,5 +1,4 @@
 from audioop import reverse
-from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -37,6 +36,3 @@ class Categorias(models.Model):
 
     def get_absolute_url(self):
         return reverse('index')
-
-
-

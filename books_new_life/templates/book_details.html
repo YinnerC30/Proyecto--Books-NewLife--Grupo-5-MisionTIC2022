@@ -1,4 +1,8 @@
 {% extends 'layouts/base.html' %} <br />
+{% load static %} <br />
+{% block links %}
+<link rel="stylesheet" href="{% static '/styles/book_details.css' %}" />
+{% endblock links %} <br />
 
 {% block mainblock %}
 <div class="details-box">
@@ -11,30 +15,38 @@
       <a href="{% url 'delete_book' object.pk %}">borrar</a>
 
       {% endif %} <br />
+    </div>
+    <img src="/media/{{object.libro_img}}" class="details_image" />
+  </div>
 
+  <div class="book_body">
+    <ul>
       <form action="{% url 'like_book' object.pk %}" method="POST">
         {% csrf_token %}
 
-        <button
-          type="submit"
-          name="book_id"
-          value="{{object.pk}}"
-          class="like_button"
-        >
-          Me gusta
-        </button>
+        <li>
+          <button
+            type="submit"
+            name="book_id"
+            value="{{object.pk}}"
+            class="like_button"
+          >
+            Agregar a favoritos
+          </button>
+        </li>
       </form>
-    </div>
-    <img src="/media/{{object.libro_img}}" />
-    <a href="{% url 'category' object.categoria %}"
-      >{{object.categoria|slugify}}</a
-    >
+
+      <li><b>Usuario:</b> {{object.usuario}}</li>
+      <li><b>Subido:</b> {{object.fecha}}</li>
+      <li>
+        <b>Categoria:</b>
+        <a href="{% url 'category' object.categoria %}"
+          >{{object.categoria|slugify}}</a
+        >
+      </li>
+    </ul>
+    <p class="reseña">{{object.reseña|safe}}</p>
   </div>
-  <ul>
-    <li>Usuario: {{object.usuario}}</li>
-    <li>Subido :{{object.fecha}}</li>
-  </ul>
-  <p>{{object.reseña|safe}}</p>
 </div>
 
 {% endblock mainblock %}

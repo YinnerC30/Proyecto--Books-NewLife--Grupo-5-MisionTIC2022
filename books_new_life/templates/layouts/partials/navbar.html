@@ -60,6 +60,7 @@
     <ul class="navbar-nav mr-auto">
       {% if user.is_authenticated %}
       
+      
      
       <li class="nav-item">
    
@@ -73,8 +74,11 @@
       <li class="nav-item active">
 
       {% else %}   
-     
+      <li>
         <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+      </li>
+     
+        
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'signup' %}">Registrase</a>
