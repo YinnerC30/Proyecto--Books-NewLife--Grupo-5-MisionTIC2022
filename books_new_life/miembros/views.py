@@ -33,6 +33,18 @@ class PasswordChangeView(PasswordChangeView):
 
 def ProfileView(request):
     user = request.user
-    form = ProfileForm(instance=user.profile)
+    return render(request, 'profile.html', {'user': user})
 
-    return render(request, 'profile.html', {'user': user, 'form': form})
+# def ProfileContactView(request):
+#     user = request.user
+#     return render(request, 'registration/edit_contact_profile.html', {'user': user})
+
+class ProfileContactView(generic.UpdateView):
+    template_name = 'registration/edit_contact_profile.html'
+    success_url = reverse_lazy('index')
+    fields = '__all__'
+
+    def get_object(self):
+        return self.request.user
+
+    
