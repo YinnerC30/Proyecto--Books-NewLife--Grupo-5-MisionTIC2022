@@ -11,4 +11,8 @@ urlpatterns = [
     path("miembros/", include('django.contrib.auth.urls')),
     path("miembros/", include('miembros.urls')),
     path("", include('feedback.urls')),
+    path("politicas/", views.politicas, name="politicas"),
+    path("tratamientodatos/", views.tratamientoDatos, name="tratamientoDatos"),
+    path("guia/", views.guiaUser, name="guiaUser"),
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
