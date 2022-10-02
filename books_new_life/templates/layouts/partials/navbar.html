@@ -29,15 +29,11 @@
         >
           Categorias
         </a>
-        
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           {% for category in categories_menu|slice:"10"  %}
           <a class="dropdown-item" href="{% url 'category' category|slugify %}">{{category}}</a>
           {% endfor %}
 
-
-          
-         
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Mas categorias</a>
         </div>
@@ -57,23 +53,38 @@
       </button>
     </form>
 
-    <ul class="navbar-nav mr-auto">
-      {% if user.is_authenticated %}
+{% comment %} Desde aquí se probara la barra desplegable {% endcomment %}
+<ul class="navbar-nav mr-auto">
+  {% if user.is_authenticated %}
+  <li class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle"
+      href="#"
+      id="navbarDropdown"
+      role="button"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <img src="/media/{{user.profile.profile_pic}}" alt="Imagen usuario" class="imagen-perfil">
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a href="{% url 'profile' %}" class="nav-link">Perfil</a>
+      <a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a>
       
-      
-     
-      <li class="nav-item">
-   
-        </a>
-        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
+      <div class="dropdown-divider"></div>
+      <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
+        </div>
+      {% comment %} <a class="dropdown-item" href="#">Mas categorias</a> {% endcomment %}
+    </div>
+  </li><br>
 
-      </li>
-       <li class="navitem"><a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a></li>
-      <li class="nav-item active">
-        <li class="navitem"><a href="{% url 'profile' %}" class="nav-link">Perfil</a></li>
-      <li class="nav-item active">
+</ul>
 
-      {% else %}   
+{% comment %} Aqui termina la prueba {% endcomment %}
+
+
+      {% else %}
       <li>
         <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
       </li>
