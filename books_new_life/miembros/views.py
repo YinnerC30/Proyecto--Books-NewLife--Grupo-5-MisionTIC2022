@@ -48,9 +48,9 @@ def LibrosSubidosView(request):
 
 def LibrosFavoritosView(request):
     user = request.user
-    user_books = Books.objects.filter(likes__pk=user.pk)
+    user_book = Books.objects.filter(likes__pk=user.pk)
 
-    return render(request, 'libros_favoritos.html', {'user': user, 'books': user_books})
+    return render(request, 'libros_favoritos.html', {'user': user, 'books': user_book})
 
 
 class DatosProfileView(CreateView):
