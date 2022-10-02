@@ -61,3 +61,8 @@ class DatosProfileView(CreateView):
     def form_valid(self, form):
         form.instance.user_id = self.request.user.pk
         return super().form_valid(form)
+
+
+def SearchView(request):
+
+    return render(request, 'search.html', {})
