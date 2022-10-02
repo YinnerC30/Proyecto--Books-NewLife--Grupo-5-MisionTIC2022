@@ -1,10 +1,12 @@
 
+from urllib import request
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from .models import Books, Categorias
 from .forms import AddBookform
 from django.http import HttpResponseRedirect
+from miembros.models import User
 
 
 class IndexView(ListView):
@@ -16,6 +18,7 @@ class IndexView(ListView):
 
         categories_menu = Categorias.objects.all()
         context = super(IndexView, self).get_context_data(*args, **kwargs)
+
         context['categories_menu'] = categories_menu
 
         return context
@@ -33,7 +36,7 @@ class Add_BookView(CreateView):
     template_name = 'add_book.html'
 
     def form_valid(self, form):
-        form.instance.usuario_id = self.request.user.pk
+        form.instance.user_id = self.request.user.pk
         return super().form_valid(form)
 
 

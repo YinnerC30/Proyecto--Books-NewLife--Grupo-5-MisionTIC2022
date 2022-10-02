@@ -25,10 +25,10 @@ class SignUpForm(UserCreationForm):
     password2 = forms.CharField(max_length=100, label='Repetir contraseña:', widget=forms.PasswordInput(
         attrs={'placeholder': 'Repetir contraseña', 'class': 'input-control'}))
 
-    class Meta:
+    class Meta():
         model = User
         fields = ('username', 'first_name', 'last_name',
-                  'email', 'password1', 'password2')
+                  'email', 'password1')
 
 
 class UserEditForm(UserChangeForm):
@@ -41,18 +41,10 @@ class UserEditForm(UserChangeForm):
     email = forms.EmailField(label='Email', widget=forms.EmailInput(
         attrs={'placeholder': 'Correo', 'class': 'box'}))
 
-    class Meta:
+    class Meta():
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password')
-
-# class LoginForm(AuthenticationForm):
-#     username = forms.CharField(max_length=100, label='Usuario', widget=forms.TextInput(attrs={'placeholder': 'Usuario', 'class': 'box'}), )
-#     password = forms.CharField(max_length=100, label='Contraseña', widget=forms.PasswordInput(
-#         attrs={'placeholder': 'Contraseña', 'class': 'box'}), )
-
-#     class Meta:
-#         model = User
-#         fields = ('username', 'password')
+        fields = ('username', 'first_name', 'last_name',
+                  'email', 'password')
 
 
 class ProfileForm(forms.ModelForm):
@@ -69,11 +61,24 @@ class ProfileForm(forms.ModelForm):
     whatsApp = forms.CharField(
         max_length=100, label='WhatsApp', widget=forms.TextInput())
     facebook = forms.CharField(
-        max_length=100, label='Facebook', widget=forms.TextInput())
+        max_length=100, label='Facebook', widget=forms.URLInput())
 
     class Meta:
         model = Profile
+        fields = ('descripcion', 'profile_pic', 'departamento',
+                  'poblacion', 'whatsApp', 'facebook', 'telefono')
+
+
+class ProfileDataForm(UserChangeForm):
+    username = forms.CharField(max_length=100, label='Usuario', widget=forms.TextInput(
+        attrs={'placeholder': 'Usuario', 'class': 'box', 'readonly': True}), )
+    first_name = forms.CharField(max_length=100, label='Nombre', widget=forms.TextInput(
+        attrs={'placeholder': 'Nombre', 'class': 'box'}), )
+    last_name = forms.CharField(max_length=100, label='Apellidos', widget=forms.TextInput(
+        attrs={'placeholder': 'Apellidos', 'class': 'box'}), )
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(
+        attrs={'placeholder': 'Correo', 'class': 'box'}))
+
+    class Meta:
+        model = User
         fields = '__all__'
-        # widgets = {
-        #     'bio': forms.Textarea(attrs={'class': 'form-control'}),
-        # }

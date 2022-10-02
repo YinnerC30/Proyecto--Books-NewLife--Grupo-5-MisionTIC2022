@@ -1,11 +1,14 @@
-from re import template
+
 from django.shortcuts import render
+from django.views.generic import UpdateView, CreateView
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.urls import reverse_lazy
-from .forms import SignUpForm, UserEditForm, ProfileForm
+from .forms import SignUpForm, UserEditForm, ProfileForm, ProfileDataForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.models import User
+from books.models import Books
+from .models import Profile
 
 # Create your views here.
 
@@ -35,16 +38,26 @@ def ProfileView(request):
     user = request.user
     return render(request, 'profile.html', {'user': user})
 
-# def ProfileContactView(request):
-#     user = request.user
-#     return render(request, 'registration/edit_contact_profile.html', {'user': user})
 
-class ProfileContactView(generic.UpdateView):
-    template_name = 'registration/edit_contact_profile.html'
-    success_url = reverse_lazy('index')
-    fields = '__all__'
+def LibrosSubidosView(request):
+    user = request.user
+    user_books = Books.objects.filter(usuario_id=user.pk)
 
-    def get_object(self):
-        return self.request.user
+    return render(request, 'libros_subidos.html', {'user': user, 'books': user_books})
 
-    
+
+def LibrosFavoritosView(request):
+    user = request.user
+    user_books = Books.objects.filter(likes__pk=user.pk)
+
+    return render(request, 'libros_favoritos.html', {'user': user, 'books': user_books})
+
+
+class DatosProfileView(CreateView):
+    form_class = ProfileForm
+    model = Profile
+    template_name = 'profile_data.html'
+
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user.pk
+        return super().form_valid(form)

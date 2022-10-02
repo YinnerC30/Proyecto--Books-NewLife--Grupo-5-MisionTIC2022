@@ -9,7 +9,8 @@ urlpatterns = [
     path("book/<int:pk>/edit", Update_bookView.as_view(), name='update_book'),
     path("book/<int:pk>/delete", DeleteBookView.as_view(), name='delete_book'),
     path("categories/<str:cat>", CategoryView, name='category'),
-    path('like/<int:pk>', Likeview, name='like_book')
+    path('like/<int:pk>', Likeview, name='like_book'),
+
 
 
 
