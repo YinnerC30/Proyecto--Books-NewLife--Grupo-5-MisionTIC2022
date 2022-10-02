@@ -28,6 +28,7 @@
     <a title="Imagen" href="#"
       ><img src="/media/{{user.profile.profile_pic}}" alt="Imagen usuario"
     /></a>
+
     {% else %}
     <a
       ><img
@@ -63,9 +64,19 @@
         {{user.profile.facebook|title}}
       </div>
     </div>
-    <a href="" class="delete-btn">Mis libros subidos</a>
-    <a href="" class="delete-btn">Libros Favoritos</a>
-    <a href="{% url 'edit_profile' %}" class="delete-btn">Modificar Perfil</a>
+    <a href="{% url 'libros_subidos' %}" class="delete-btn"
+      >Mis libros subidos</a
+    >
+    <a href="{% url 'libros_favoritos' %}" class="delete-btn"
+      >Libros Favoritos</a
+    >
+    <a href="{% url 'edit_profile' %}" class="delete-btn"
+      >Modificar datos personales</a
+    >
+
+    <a href="{% url 'profile_data' %}" class="delete-btn"
+      >Modificar datos de contacto y perfil</a
+    >
     <a href="{% url 'recover' %}" class="delete-btn">Cambiar Contraseña</a>
   </form>
 </div>

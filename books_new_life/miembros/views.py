@@ -1,11 +1,14 @@
-from re import template
+
 from django.shortcuts import render
+from django.views.generic import UpdateView, CreateView
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.urls import reverse_lazy
-from .forms import SignUpForm, UserEditForm, ProfileForm
+from .forms import SignUpForm, UserEditForm, ProfileForm, ProfileDataForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.models import User
+from books.models import Books
+from .models import Profile
 
 # Create your views here.
 
@@ -33,6 +36,28 @@ class PasswordChangeView(PasswordChangeView):
 
 def ProfileView(request):
     user = request.user
-    form = ProfileForm(instance=user.profile)
+    return render(request, 'profile.html', {'user': user})
 
-    return render(request, 'profile.html', {'user': user, 'form': form})
+
+def LibrosSubidosView(request):
+    user = request.user
+    user_books = Books.objects.filter(usuario_id=user.pk)
+
+    return render(request, 'libros_subidos.html', {'user': user, 'books': user_books})
+
+
+def LibrosFavoritosView(request):
+    user = request.user
+    user_books = Books.objects.filter(likes__pk=user.pk)
+
+    return render(request, 'libros_favoritos.html', {'user': user, 'books': user_books})
+
+
+class DatosProfileView(CreateView):
+    form_class = ProfileForm
+    model = Profile
+    template_name = 'profile_data.html'
+
+    def form_valid(self, form):
+        form.instance.usuario_id = self.request.user.pk
+        return super().form_valid(form)
