@@ -61,11 +61,12 @@ class ProfileForm(forms.ModelForm):
     whatsApp = forms.CharField(
         max_length=100, label='WhatsApp', widget=forms.TextInput())
     facebook = forms.CharField(
-        max_length=100, label='Facebook', widget=forms.TextInput())
+        max_length=100, label='Facebook', widget=forms.URLInput())
 
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ('descripcion', 'profile_pic', 'departamento',
+                  'poblacion', 'whatsApp', 'facebook', 'telefono')
 
 
 class ProfileDataForm(UserChangeForm):

@@ -59,5 +59,5 @@ class DatosProfileView(CreateView):
     template_name = 'profile_data.html'
 
     def form_valid(self, form):
-        form.instance.usuario_id = self.request.user.pk
+        form.instance.user_id = self.request.user.pk
         return super().form_valid(form)
