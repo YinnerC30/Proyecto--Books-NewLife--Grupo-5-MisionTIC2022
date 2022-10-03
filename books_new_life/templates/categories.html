@@ -9,7 +9,7 @@
 {% block mainblock %} <br />
 
 <div class="box-list">
-  <h5>Categorias:</h5>
+  <h5>Categorias</h5>
   <ul>
     {% for category in categories_aside  %}
     <li class="category-li"><a href="{% url 'category' category|slugify %}"><span>{{category}}</span></a></li>
