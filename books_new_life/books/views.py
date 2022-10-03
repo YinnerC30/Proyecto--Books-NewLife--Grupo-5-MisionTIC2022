@@ -36,7 +36,7 @@ class Add_BookView(CreateView):
     template_name = 'add_book.html'
 
     def form_valid(self, form):
-        form.instance.user_id = self.request.user.pk
+        form.instance.usuario_id = self.request.user.pk
         return super().form_valid(form)
 
 
