@@ -21,6 +21,8 @@
 
   <div class="book_body">
     <ul>
+      {% if user.is_authenticated %} 
+      
       <form action="{% url 'like_book' object.pk %}" method="POST">
         {% csrf_token %} {% if liked %}
         <li>
@@ -47,8 +49,10 @@
         </li>
 
         {% endif %} <br />
-      </form>
 
+      </form>
+      {% endif %}
+      
       <li><b>Usuario:</b> {{object.usuario}}</li>
       <li><b>Subido:</b> {{object.fecha}}</li>
       <li>
