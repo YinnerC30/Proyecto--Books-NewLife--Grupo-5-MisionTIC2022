@@ -22,7 +22,18 @@
   <div class="book_body">
     <ul>
       <form action="{% url 'like_book' object.pk %}" method="POST">
-        {% csrf_token %}
+        {% csrf_token %} {% if liked %}
+        <li>
+          <button
+            type="submit"
+            name="book_id"
+            value="{{object.pk}}"
+            class="like_button"
+          >
+            Quitar de favoritos
+          </button>
+        </li>
+        {% else %}
 
         <li>
           <button
@@ -34,6 +45,8 @@
             Agregar a favoritos
           </button>
         </li>
+
+        {% endif %} <br />
       </form>
 
       <li><b>Usuario:</b> {{object.usuario}}</li>

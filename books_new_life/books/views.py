@@ -1,5 +1,5 @@
 
-from urllib import request
+
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
@@ -25,8 +25,26 @@ class IndexView(ListView):
 
 
 class BookdetailsView(DetailView):
+
     model = Books
     template_name = 'book_details.html'
+
+    def get_context_data(self, *args, **kwargs):
+
+        context = super(BookdetailsView, self).get_context_data(
+            *args, **kwargs)
+
+        stuff = get_object_or_404(Books, id=self.kwargs['pk'])
+        total_likes = stuff.total_likes()
+
+        liked = False
+        if stuff.likes.filter(id=self.request.user.pk).exists():
+            liked = True
+
+        context['total_likes'] = total_likes
+        context['liked'] = liked
+
+        return context
 
 
 class Add_BookView(CreateView):
@@ -63,7 +81,15 @@ def CategoryView(request, cat):
 
 def Likeview(request, pk):
     book = get_object_or_404(Books, id=request.POST.get('book_id'))
-    book.likes.add(request.user)
+
+    liked = False
+
+    if book.likes.filter(id=request.user.pk).exists():
+        book.likes.remove(request.user)
+        liked = False
+    else:
+        book.likes.add(request.user)
+        liked = True
 
     return HttpResponseRedirect(reverse('book_details', args=[str(pk)]))
 
