@@ -83,8 +83,8 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a href="{% url 'profile' %}" class="nav-link">Perfil</a>
       <a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a>
-      <a href="#" class="nav-link">Ver mis libros</a>
-      <a href="#" class="nav-link">Ver mis favoritos</a>
+      <a href="{% url 'libros_subidos' %}" class="nav-link">Ver mis libros</a>
+      <a href="{% url 'libros_favoritos' %}" class="nav-link">Ver mis favoritos</a>
       
       <div class="dropdown-divider"></div>
       <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
