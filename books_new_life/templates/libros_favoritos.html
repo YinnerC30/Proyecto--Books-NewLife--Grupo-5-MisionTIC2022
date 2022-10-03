@@ -22,7 +22,7 @@
           <p><b>Subido: </b>{{book.fecha}}</p>
         </div>
         <div>
-          <a href="{% url 'update_book' book.pk %}">Contactar</a>
+          <a href="{% url 'contact' book.usuario.pk %}">Contactar</a>
         </div>
       </div>
 

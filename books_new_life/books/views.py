@@ -69,11 +69,21 @@ def Likeview(request, pk):
 
 
 def SearchView(request):
-    print(request.method == 'POST')
+
     if request.method == 'POST':
         searched = request.POST['searched']
         result = Books.objects.filter(titulo__icontains=searched)
-        print(result)
+
+        return render(request, 'search.html', {'searched': searched, 'results': result})
+    else:
+        return render(request, 'search.html', {})
+
+
+def SearchView(request):
+
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        result = Books.objects.filter(titulo__icontains=searched)
 
         return render(request, 'search.html', {'searched': searched, 'results': result})
     else:

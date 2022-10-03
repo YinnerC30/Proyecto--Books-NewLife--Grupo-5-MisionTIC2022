@@ -70,7 +70,13 @@
         <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
 
       </li>
-       <li class="navitem"><a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a></li>
+
+      {% if user.profile %} 
+      <li class="navitem"><a href="{% url 'add_book' %}" 
+        class="nav-link">Publicar Libro</a></li> {{user.profile.telefono}}
+      
+      {% endif %}
+      
       <li class="nav-item active">
         <li class="navitem"><a href="{% url 'profile' %}" class="nav-link">Perfil</a></li>
       <li class="nav-item active">

@@ -66,3 +66,11 @@ class DatosProfileView(CreateView):
 def SearchView(request):
 
     return render(request, 'search.html', {})
+
+
+def Contact(request, pk):
+
+    user_contact = User.objects.get(id=pk)
+    user_profile = Profile.objects.get(user_id=pk)
+
+    return render(request, 'contact.html', {'contact': user_contact, 'contact2': user_profile})
