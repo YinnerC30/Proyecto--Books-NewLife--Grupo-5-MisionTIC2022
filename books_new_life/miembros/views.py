@@ -48,9 +48,9 @@ def LibrosSubidosView(request):
 
 def LibrosFavoritosView(request):
     user = request.user
-    user_books = Books.objects.filter(likes__pk=user.pk)
+    user_book = Books.objects.filter(likes__pk=user.pk)
 
-    return render(request, 'libros_favoritos.html', {'user': user, 'books': user_books})
+    return render(request, 'libros_favoritos.html', {'user': user, 'books': user_book})
 
 
 class DatosProfileView(CreateView):
@@ -62,5 +62,15 @@ class DatosProfileView(CreateView):
         form.instance.user_id = self.request.user.pk
         return super().form_valid(form)
 
-def contactar(request):
-    return render(request, 'informacion_contacto.html')
+
+def SearchView(request):
+
+    return render(request, 'search.html', {})
+
+
+def Contact(request, pk):
+
+    user_contact = User.objects.get(id=pk)
+    user_profile = Profile.objects.get(user_id=pk)
+
+    return render(request, 'contact.html', {'contact': user_contact, 'contact2': user_profile})

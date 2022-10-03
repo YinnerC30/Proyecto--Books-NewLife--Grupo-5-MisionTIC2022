@@ -24,7 +24,18 @@
       {% if user.is_authenticated %} 
       
       <form action="{% url 'like_book' object.pk %}" method="POST">
-        {% csrf_token %}
+        {% csrf_token %} {% if liked %}
+        <li>
+          <button
+            type="submit"
+            name="book_id"
+            value="{{object.pk}}"
+            class="like_button"
+          >
+            Quitar de favoritos
+          </button>
+        </li>
+        {% else %}
 
         <li>
           <button
@@ -36,9 +47,9 @@
             Agregar a favoritos
           </button>
         </li>
-        <li>
-          <a href="{% url 'contactar' %}">Contactar al propietario</a>
-        </li>
+
+        {% endif %} <br />
+
       </form>
       {% endif %}
       

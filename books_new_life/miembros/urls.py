@@ -1,5 +1,8 @@
 from django.urls import path
-from .views import SignUpView, UserEditView, PasswordChangeView, ProfileView, LibrosSubidosView, LibrosFavoritosView, DatosProfileView, contactar
+
+from .views import SignUpView, UserEditView, PasswordChangeView, ProfileView, LibrosSubidosView, LibrosFavoritosView, DatosProfileView, Contact
+
+
 from django.contrib.auth.views import LoginView, LogoutView
 
 
@@ -12,7 +15,9 @@ urlpatterns = [
     path("libros_subidos/", LibrosSubidosView, name="libros_subidos"),
     path("libros_favoritos/", LibrosFavoritosView, name="libros_favoritos"),
     path("profile_data/", DatosProfileView.as_view(), name="profile_data"),
-    path('contactar/', contactar, name='contactar'),
+    path("contact/<int:pk>", Contact, name="contact"),
+
+
 
 
 
