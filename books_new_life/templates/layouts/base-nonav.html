@@ -26,7 +26,9 @@
     <link rel="stylesheet" href="{% static 'styles/footer_.css' %}" />
     {% block links %}{% endblock links %}
 
-    <title>Books-Newlife</title>
+    {% block titulo %}
+      Pagina principal | Books-Newlife
+      {% endblock titulo %}
   </head>
   <body>
     {% block mainblock %} {%endblock mainblock %}

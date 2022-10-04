@@ -3,7 +3,11 @@
 
 {% block links %}
 <link rel="stylesheet" href="{% static '/styles/index_.css' %}" />
-{% endblock links %} <br />
+{% endblock links %} 
+{% block titulo %}
+      Resultados de busqueda | Books-Newlife
+      {% endblock titulo %}
+<br />
 {% block mainblock %} <br />
 
 {% if searched %}

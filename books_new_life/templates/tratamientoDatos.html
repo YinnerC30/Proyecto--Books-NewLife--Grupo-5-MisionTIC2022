@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 {% extends 'layouts/base.html' %} {% load static %} {% block links %}
 <link rel="stylesheet" href="{% static 'styles/privacidad.css' %}" />
-{% endblock links %} {% block mainblock %}
+{% endblock links %} 
+{% block titulo %}
+      Tratamiento de datos | Books-Newlife
+      {% endblock titulo %}
+{% block mainblock %}
 <div class="about-section">
   <h1>Tratamiento de Datos</h1>
   <br />

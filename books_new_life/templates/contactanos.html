@@ -1,6 +1,15 @@
-{% extends 'layouts/base-nonav.html' %} {% load static %} {% block links %}
+{% extends 'layouts/base-nonav.html' %}
+
+{% block titulo %}
+    Contactanos | Books-Newlife
+{% endblock titulo %}
+
+{% load static %} {% block links %}
 <link rel="stylesheet" href="{% static '/styles/estilos.css' %}" />
-{%endblock links %} <br />
+{%endblock links %}
+
+<br />
+
 {% block mainblock %}
 <section class="form-main">
   <div class="form-content">
