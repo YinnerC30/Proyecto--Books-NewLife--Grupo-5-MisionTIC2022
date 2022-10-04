@@ -40,7 +40,7 @@
       <div class="inputBox">
         <span>Departamento:</span>
         {{user.profile.departamento|title}}
-        <span>Población:</span>
+        <span>Dirección:</span>
         {{user.profile.direccion|title}}
         <span>Telefono:</span>
         {{user.profile.telefono|title}}
@@ -60,9 +60,7 @@
       >Modificar datos personales</a
     >
 
-    <a href="{% url 'profile_data' %}" class="delete-btn"
-      >Modificar datos de contacto y perfil</a
-    >
+    <a href="{% url 'edit_profile_data' user.profile.pk %}" class="delete-btn">Modificar datos de contacto y perfil</a>
     <a href="{% url 'recover' %}" class="delete-btn">Cambiar Contraseña</a>
   </form>
 </div>

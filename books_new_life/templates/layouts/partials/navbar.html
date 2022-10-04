@@ -81,6 +81,10 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a href="{% url 'profile' %}" class="nav-link">Perfil</a>
       
+      {% if not user.profile %}
+      <a href="{% url 'profile_data' %}" class="nav-link">Registrar perfil</a>
+      {% endif %}
+
       {% if user.profile %}
       <a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a>
       {% endif %}
