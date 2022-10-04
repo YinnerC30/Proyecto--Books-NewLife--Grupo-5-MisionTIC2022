@@ -75,16 +75,16 @@
     {% if user.profile.profile_pic %}
     <img src="/media/{{user.profile.profile_pic}}" alt="Imagen usuario" class="imagen-perfil">
     {% else %}
-    <img
-        src="{% static 'images/default_images/default-avatar.png' %}"
-        alt="Imagen usuario" class="imagen-perfil"
-      />
-    </a>
-
+    Opciones
     {%endif %}
+    </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a href="{% url 'profile' %}" class="nav-link">Perfil</a>
       
+      {% if not user.profile %}
+      <a href="{% url 'profile_data' %}" class="nav-link">Registrar perfil</a>
+      {% endif %}
+
       {% if user.profile %}
       <a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a>
       {% endif %}
@@ -92,13 +92,8 @@
       <a href="{% url 'libros_subidos' %}" class="nav-link">Ver mis libros</a>
       <a href="{% url 'libros_favoritos' %}" class="nav-link">Ver mis favoritos</a>
       
-      <div class="dropdown-divider"></div>
-      <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
-        </div>
-      {% comment %} <a class="dropdown-item" href="#">Mas categorias</a> {% endcomment %}
+      <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a> 
     </div>
-  </li><br>
-
 </ul>
 
 {% comment %} Aqui termina la prueba {% endcomment %}
@@ -108,9 +103,7 @@
       <li>
         <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
       </li>
-     
-        
-      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="{% url 'signup' %}">Registrase</a>
       </li>

@@ -26,10 +26,15 @@
     <link rel="stylesheet" href="{% static 'styles/footer_.css' %}" />
     {% block links %}{% endblock links %}
 
-    <title>Books-Newlife</title>
+    <title>
+      {% block titulo %}
+      Pagina principal | Books-Newlife
+      {% endblock titulo %}
+    </title>
   </head>
   <body>
-    {% include 'layouts/partials/navbar.html' %} {% block mainblock %}
+    {% include 'layouts/partials/navbar.html' %} 
+    {% block mainblock %}
     {%endblock mainblock %}
     <!---->
     {% include 'Layouts/partials/footer.html' %}

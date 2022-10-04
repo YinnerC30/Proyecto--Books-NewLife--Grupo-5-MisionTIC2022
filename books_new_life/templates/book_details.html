@@ -1,5 +1,8 @@
 {% extends 'layouts/base.html' %} <br />
 {% load static %} <br />
+{% block titulo %}
+      Detalle libro | Books-Newlife
+      {% endblock titulo %}
 {% block links %}
 <link rel="stylesheet" href="{% static '/styles/book_details.css' %}" />
 {% endblock links %} <br />
@@ -52,7 +55,14 @@
 
       </form>
       {% endif %}
-      
+      <li><b>Autor:</b> {{object.autor}}</li>
+      <li><b>Editorial:</b> {{object.editorial}}</li>
+      <li><b>Intención:</b> {{object.intencion}}</li>
+      <li><b>Cantidad:</b> {{object.cantidad}}</li>
+      {% if object.intencion == 'Vender' %}
+      <li><b>Precio:</b> {{object.precio}}</li>
+      {% endif %}
+      <li><b>Estado:</b> {{object.estado}}</li>
       <li><b>Usuario:</b> {{object.usuario}}</li>
       <li><b>Subido:</b> {{object.fecha}}</li>
       <li>

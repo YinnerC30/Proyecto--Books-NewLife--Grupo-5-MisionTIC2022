@@ -54,11 +54,11 @@ class ProfileForm(forms.ModelForm):
         label='Foto de perfil', widget=forms.FileInput())
     departamento = forms.CharField(
         max_length=100, label='Departamento', widget=forms.TextInput())
-    poblacion = forms.CharField(
-        max_length=100, label='Poblacion', widget=forms.TextInput())
+    direccion = forms.CharField(
+        max_length=100, label='direccion', widget=forms.TextInput())
     telefono = forms.CharField(
         max_length=100, label='Telefono', widget=forms.TextInput())
-    whatsApp = forms.CharField(
+    whatsapp = forms.CharField(
         max_length=100, label='WhatsApp', widget=forms.TextInput())
     facebook = forms.CharField(
         max_length=100, label='Facebook', widget=forms.URLInput())
@@ -66,7 +66,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('descripcion', 'profile_pic', 'departamento',
-                  'poblacion', 'whatsApp', 'facebook', 'telefono')
+                  'direccion', 'whatsapp', 'facebook', 'telefono')
 
 
 class ProfileDataForm(UserChangeForm):

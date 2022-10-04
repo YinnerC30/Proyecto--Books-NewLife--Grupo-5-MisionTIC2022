@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -6,16 +7,17 @@ from django.urls import reverse
 
 
 class Profile(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    descripcion = models.TextField()
+    descripcion = models.TextField(max_length=100)
     profile_pic = models.ImageField(
-        null=True, blank=True, upload_to="images/profile/")
+        null=True, default="static\images\default_images\default-avatar.png", blank=True, upload_to="images/profile/")
     departamento = models.CharField(max_length=50, default=None)
-    poblacion = models.CharField(max_length=50, default=None)
+    direccion = models.CharField(max_length=50, default=None)
 
     # informacion de contacto
     telefono = models.CharField(max_length=10, default=None)
-    whatsApp = models.CharField(max_length=10, default=None)
+    whatsapp = models.CharField(max_length=10, default=None)
     facebook = models.URLField(
         ("Facebook"),
         max_length=700,

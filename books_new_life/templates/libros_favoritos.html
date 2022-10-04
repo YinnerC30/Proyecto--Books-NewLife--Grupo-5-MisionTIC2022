@@ -3,7 +3,11 @@
 
 <link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
 <link rel="stylesheet" href="{% static '/styles/libros_subidos.css' %}" />
-{% endblock links %} <br />
+{% endblock links %}
+{% block titulo %}
+      Favoritos | Books-Newlife
+      {% endblock titulo %}
+<br />
 {% block mainblock %}
 
 <div class="update-profile">

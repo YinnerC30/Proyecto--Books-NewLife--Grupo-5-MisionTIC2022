@@ -1,5 +1,7 @@
 {% extends 'layouts/base.html' %} <br />
-
+{% block titulo %}
+      Eliminar libro | Books-Newlife
+      {% endblock titulo %}
 {% block mainblock %} <br />
 {% if user.is_authenticated %}
 <h2>Borrar-{{object.titulo}}</h2>

@@ -1,9 +1,13 @@
 {% extends 'layouts/base-nonav.html' %} {% load static %} <br />
 
 {% block links %}
-
 <link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
 {% endblock links %} <br />
+
+{% block titulo %}
+      Información de contacto  | Books-Newlife
+{% endblock titulo %}
+
 {% block mainblock %}
 
 <div class="update-profile">
@@ -30,11 +34,11 @@
             <span>Departamento:</span>
             {{contact2.departamento|title}}
             <span>Población:</span>
-            {{contact2.poblacion|title}}
+            {{contact2.direccion|title}}
             <span>Telefono:</span>
             {{contact2.telefono|title}}
             <span>WhatsApp:</span>
-            {{contact2.whatsApp|title}}
+            {{contact2.whatsapp|title}}
             <span>Facebook:</span>
             {{contact2.facebook|title}}
           </div>
