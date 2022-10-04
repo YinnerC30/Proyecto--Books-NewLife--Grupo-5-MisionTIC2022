@@ -1,4 +1,5 @@
 
+from multiprocessing.dummy import Manager
 from django.shortcuts import render
 from django.views.generic import UpdateView, CreateView
 from django.views import generic
@@ -75,8 +76,3 @@ def Contact(request, pk):
     user_profile = Profile.objects.get(user_id=pk)
 
     return render(request, 'contact.html', {'contact': user_contact, 'contact2': user_profile})
-
-class UpdateProfileView(UpdateView):
-    form_class = ProfileForm
-    model = Profile
-    template_name = 'edit_profile_data.html'
