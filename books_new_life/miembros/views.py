@@ -74,3 +74,13 @@ def Contact(request, pk):
     user_profile = Profile.objects.get(user_id=pk)
 
     return render(request, 'contact.html', {'contact': user_contact, 'contact2': user_profile})
+
+# class Add_BookView(CreateView):
+#     form_class = AddBookform
+
+#     model = Books
+#     template_name = 'add_book.html'
+
+#     def form_valid(self, form):
+#         form.instance.usuario_id = self.request.user.pk
+#         return super().form_valid(form)

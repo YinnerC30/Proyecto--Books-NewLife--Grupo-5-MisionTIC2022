@@ -5,8 +5,8 @@
 <div class="form-container">
   <form action="" method="POST" enctype="multipart/form-data">
     <h3><b>Agregar datos de perfil y contacto</b></h3>
-    {% csrf_token %} {{form.as_p}}
-    <button type="submit" class="btn">Guardar cambios</button>
+    {% csrf_token %} {{form}}
+    <button type="submit" class="btn">Guardar</button>
   </form>
 </div>
 

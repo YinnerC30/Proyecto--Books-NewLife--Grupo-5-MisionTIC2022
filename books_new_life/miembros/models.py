@@ -7,6 +7,7 @@ from django.urls import reverse
 
 
 class Profile(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     descripcion = models.TextField(max_length=100)
     profile_pic = models.ImageField(
