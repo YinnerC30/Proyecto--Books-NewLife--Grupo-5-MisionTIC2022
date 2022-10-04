@@ -10,7 +10,11 @@ class Books(models.Model):
 
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=200)
+    editorial = models.CharField(max_length=50, null=True)
     categoria = models.CharField(max_length=200)
+    cantidad = models.IntegerField(null=True)
+    intencion = models.CharField(max_length=200)
+    precio = models.IntegerField(null=True)
     estado = models.CharField(max_length=15)
     autor = models.CharField(max_length=200)
     reseña = RichTextField(blank=True, null=True)

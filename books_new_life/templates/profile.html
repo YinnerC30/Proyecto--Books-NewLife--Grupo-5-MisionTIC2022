@@ -1,4 +1,4 @@
-{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+{% extends 'layouts/base.html' %} {% load static %} <br />
 {% block links %}
 
 <link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
@@ -45,7 +45,7 @@
         <span>Telefono:</span>
         {{user.profile.telefono|title}}
         <span>WhatsApp:</span>
-        {{user.profile.whatsApp|title}}
+        {{user.profile.whatsapp|title}}
         <span>Facebook:</span>
         {{user.profile.facebook|title}}
       </div>
