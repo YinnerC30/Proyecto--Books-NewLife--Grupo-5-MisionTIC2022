@@ -4,10 +4,8 @@
 <link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
 {% endblock links %} <br />
 
-{% block titulo %}
-      Información de contacto  | Books-Newlife
-{% endblock titulo %}
-
+{% block title %}Datos de contacto| {{contact.username}}{% endblock title %}
+<br />
 {% block mainblock %}
 
 <div class="update-profile">

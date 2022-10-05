@@ -2,25 +2,10 @@
 {% block links %}
 
 <link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
-{% endblock links %} 
-{% block titulo %}
-      Modificar usuario | Books-Newlife
-      {% endblock titulo %}
+{% endblock links %} <br />
+{% block title %} Modificar datos de usuario Books-newlife {% endblock title %}
 <br />
-{% block mainblock %} {% comment %}
-<section class="form-main">
-  <div class="form-content">
-    <div class="box">
-      <h3>Bienvenido</h3>
-
-      <form action="" method="POST">
-        {% csrf_token %} {{form}}
-        <button type="submit">Actulizar datos</button>
-      </form>
-    </div>
-  </div>
-</section>
-{% endcomment %}
+{% block mainblock %}
 
 <div class="update-profile">
   <form action="" method="post" enctype="multipart/form-data">

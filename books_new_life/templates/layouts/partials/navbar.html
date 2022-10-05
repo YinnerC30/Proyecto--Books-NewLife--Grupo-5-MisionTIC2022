@@ -75,7 +75,10 @@
     {% if user.profile.profile_pic %}
     <img src="/media/{{user.profile.profile_pic}}" alt="Imagen usuario" class="imagen-perfil">
     {% else %}
-    Opciones
+    <img
+        src="{% static 'images/default_images/default-avatar.png' %}"
+        alt="Imagen usuario" class="imagen-perfil"
+      />
     {%endif %}
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -7,7 +7,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="{% static '/icons/appicons/icono.png' %}" rel="icon" />
+    <link
+      rel="icon"
+      href="{% static '/icons/appicons/icono.png' %}"
+      rel="icon"
+    />
 
     {% comment %} boostrap {% endcomment %}
     <link
@@ -26,15 +30,10 @@
     <link rel="stylesheet" href="{% static 'styles/footer_.css' %}" />
     {% block links %}{% endblock links %}
 
-    <title>
-      {% block titulo %}
-      Pagina principal | Books-Newlife
-      {% endblock titulo %}
-    </title>
+    <title>{% block title %} Books-Newlife{% endblock %}</title>
   </head>
   <body>
-    {% include 'layouts/partials/navbar.html' %} 
-    {% block mainblock %}
+    {% include 'layouts/partials/navbar.html' %} {% block mainblock %}
     {%endblock mainblock %}
     <!---->
     {% include 'Layouts/partials/footer.html' %}

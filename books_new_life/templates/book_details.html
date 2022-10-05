@@ -1,12 +1,10 @@
 {% extends 'layouts/base.html' %} <br />
 {% load static %} <br />
-{% block titulo %}
-      Detalle libro | Books-Newlife
-      {% endblock titulo %}
 {% block links %}
 <link rel="stylesheet" href="{% static '/styles/book_details.css' %}" />
 {% endblock links %} <br />
 
+{% block title %}{{object.titulo}}|Books-NewLife{% endblock title %} <br />
 {% block mainblock %}
 <div class="details-box">
   <div class="titulo-img">
@@ -24,8 +22,8 @@
 
   <div class="book_body">
     <ul>
-      {% if user.is_authenticated %} 
-      
+      {% if user.is_authenticated %}
+
       <form action="{% url 'like_book' object.pk %}" method="POST">
         {% csrf_token %} {% if liked %}
         <li>
@@ -52,7 +50,6 @@
         </li>
 
         {% endif %} <br />
-
       </form>
       {% endif %}
       <li><b>Autor:</b> {{object.autor}}</li>

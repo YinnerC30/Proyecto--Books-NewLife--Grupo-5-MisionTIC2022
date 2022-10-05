@@ -1,12 +1,9 @@
-{% extends 'layouts/base.html' %} {% load static %} <br />
+{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
 {% block links %}
 
 <link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
-{% endblock links %}
-{% block titulo %}
-      Perfil de usuario | Books-Newlife
-      {% endblock titulo %}
-<br />
+{% endblock links %} <br />
+{% block title %}Perfil | {{user.first_name|title}}{% endblock title %} <br />
 {% block mainblock %}
 
 <div class="update-profile">
@@ -64,7 +61,17 @@
       >Modificar datos personales</a
     >
 
-    <a href="{% url 'edit_profile_data' user.profile.pk %}" class="delete-btn">Modificar datos de contacto y perfil</a>
+    {% if user.profile %}
+    <a href="{% url 'edit_profile_data' user.profile.pk%}" class="delete-btn"
+      >Modificar datos de contacto y perfil</a
+    >
+
+    {% else %}
+    <a href="{% url 'profile_data'%}" class="delete-btn"
+      >Agregar datos de contacto y perfil</a
+    >
+
+    {% endif %}
     <a href="{% url 'recover' %}" class="delete-btn">Cambiar Contraseña</a>
   </form>
 </div>

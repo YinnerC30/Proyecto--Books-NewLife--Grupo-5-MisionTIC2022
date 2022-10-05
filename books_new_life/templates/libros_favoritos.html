@@ -3,10 +3,8 @@
 
 <link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
 <link rel="stylesheet" href="{% static '/styles/libros_subidos.css' %}" />
-{% endblock links %}
-{% block titulo %}
-      Favoritos | Books-Newlife
-      {% endblock titulo %}
+{% endblock links %} <br />
+{% block title %}Libros favoritos | Books-Newlife{% endblock title %}
 <br />
 {% block mainblock %}
 
@@ -26,9 +24,7 @@
           <p><b>Subido: </b>{{book.fecha}}</p>
         </div>
         <div>
-
           <a href="{% url 'contact' book.usuario.pk %}">Contactar</a>
-
         </div>
       </div>
 

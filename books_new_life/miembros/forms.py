@@ -10,7 +10,7 @@ class SignUpForm(UserCreationForm):
     username = forms.CharField(max_length=100, label='Nombre de usuario:', widget=forms.TextInput(
         attrs={'placeholder': 'Nombre de usuario', 'class': 'input-control'}), )
 
-    email = forms.EmailField(label='Correo electronico:', widget=forms.EmailInput(
+    email = forms.EmailField(label='Correo electrónico:', widget=forms.EmailInput(
         attrs={'placeholder': 'Correo electronico', 'class': 'input-control'}))
 
     first_name = forms.CharField(max_length=100, label='Nombre:', widget=forms.TextInput(
@@ -49,15 +49,15 @@ class UserEditForm(UserChangeForm):
 
 class ProfileForm(forms.ModelForm):
     descripcion = forms.CharField(
-        max_length=100, label='Descripcion', widget=forms.Textarea())
+        max_length=100, label='Descripción', widget=forms.Textarea())
     profile_pic = forms.ImageField(
         label='Foto de perfil', widget=forms.FileInput())
     departamento = forms.CharField(
         max_length=100, label='Departamento', widget=forms.TextInput())
     direccion = forms.CharField(
-        max_length=100, label='direccion', widget=forms.TextInput())
+        max_length=100, label='Dirección', widget=forms.TextInput())
     telefono = forms.CharField(
-        max_length=100, label='Telefono', widget=forms.TextInput())
+        max_length=100, label='Teléfono', widget=forms.TextInput())
     whatsapp = forms.CharField(
         max_length=100, label='WhatsApp', widget=forms.TextInput())
     facebook = forms.CharField(

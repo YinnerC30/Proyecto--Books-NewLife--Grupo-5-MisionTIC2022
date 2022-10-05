@@ -16,7 +16,8 @@ urlpatterns = [
     path("libros_favoritos/", LibrosFavoritosView, name="libros_favoritos"),
     path("profile_data/", DatosProfileView.as_view(), name="profile_data"),
     path("contact/<int:pk>", Contact, name="contact"),
-    path("profile_data/<int:pk>/edit", UpdateProfileView.as_view(), name="edit_profile_data"),
+    path("profile_data/<int:pk>", UpdateProfileView.as_view(),
+         name="edit_profile_data"),
 
 
 
