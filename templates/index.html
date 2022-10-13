@@ -21,7 +21,12 @@
           ><img src="media/{{book.libro_img}}"
         /></a>
         <div class="info">
+          {% if book.titulo|length > 35 %}
+          <h4>{{book.titulo|slice:35}}...</h4>
+          {% else %}
           <h4>{{book.titulo}}</h4>
+          {% endif %}
+
           <p><b>Autor:</b> {{book.autor}}</p>
           <p><b>Estado:</b> {{book.estado}}</p>
           <p class="card-user"><b>Subido por: </b>{{book.usuario}}</p>
@@ -35,32 +40,4 @@
   </div>
 </section>
 
-{% comment %}
-<div class="section-4">
-  <h2>Contactanos</h2>
-  <p>Dejanos tu mensaje o sugerencia:</p>
-
-  <div class="column">
-    <form action="/index.html">
-      <label for="fname">Nombre</label>
-      <input type="text" id="fname" name="firstname" placeholder="Tu nombre" />
-
-      <label for="country">Country</label>
-      <select id="country" name="country">
-        <option value="india">Colombia</option>
-        <option value="australia">Argentina</option>
-        <option value="canada">Chile</option>
-        <option value="usa">USA</option>
-        <option value="usa">Otro</option>
-      </select>
-      <label for="subject">Mensaje</label>
-      <textarea
-        id="subject"
-        name="subject"
-        placeholder="Escribe algo"
-      ></textarea>
-      <input type="submit" value="Enviar" />
-    </form>
-  </div>
-</div>
-{% endcomment %} {% endblock mainblock %}
+{% endblock mainblock %}

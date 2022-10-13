@@ -16,10 +16,10 @@ SECRET_KEY = "django-insecure-l*0m^l$$-al(4q)4@f7viykph)l51ep+xyrs+btjpuov5(j^fb
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = ['https://booksnewlife-production.up.railway.app']
-ALLOWED_HOSTS = ['booksnewlife-production.up.railway.app', '127.0.0:1']
+#ALLOWED_HOSTS = ['booksnewlife-production.up.railway.app', '127.0.0:1']
 
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -93,7 +93,7 @@ DATABASES = {
         'PASSWORD': 'LfpXlgydG8RHDUeSh0eg',
         'HOST': 'containers-us-west-51.railway.app',
         'PORT': '7243',
-        
+
     }
 }
 
@@ -105,10 +105,9 @@ DATABASES = {
 #         'PASSWORD': 'DH0WdmP0nMB1ZlM1HsIf',
 #         'HOST': 'containers-us-west-30.railway.app',
 #         'PORT': '6745',
-        
+
 #     }
 # }
-
 
 
 # Password validation
@@ -152,8 +151,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -161,4 +158,3 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-

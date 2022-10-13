@@ -55,12 +55,10 @@
       <li><b>Autor:</b> {{object.autor}}</li>
       <li><b>Editorial:</b> {{object.editorial}}</li>
       <li><b>Intención:</b> {{object.intencion}}</li>
-      
+
       {% if object.cantidad < '1' %}
       <li><b>Cantidad:</b> {{object.cantidad}}</li>
-      {% endif %}
-
-      {% if object.intencion == 'Vender' %}
+      {% endif %} {% if object.intencion == 'Vender' %}
       <li><b>Precio:</b> {{object.precio}}</li>
       {% endif %}
       <li><b>Estado:</b> {{object.estado}}</li>
@@ -68,9 +66,7 @@
       <li><b>Subido:</b> {{object.fecha}}</li>
       <li>
         <b>Categoria:</b>
-        <a href="{% url 'category' object.categoria %}"
-          >{{object.categoria|slugify}}</a
-        >
+        <a href="{% url 'category' object.categoria %}">{{object.categoria}}</a>
       </li>
     </ul>
     <p class="reseña">{{object.reseña|safe}}</p>

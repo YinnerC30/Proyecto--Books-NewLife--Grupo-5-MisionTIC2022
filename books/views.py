@@ -105,4 +105,3 @@ def SearchView(request):
         return render(request, 'search.html', {'searched': searched, 'results': result, 'result_longitud': result_longitud})
     else:
         return render(request, 'search.html', {})
-

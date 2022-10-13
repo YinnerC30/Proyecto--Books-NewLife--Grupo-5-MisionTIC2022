@@ -1,7 +1,11 @@
+.contenido {
+  display: flex;
+  justify-content: space-around;
+}
+
 .box-list {
   margin-bottom: 20px;
 
-  width: 100%;
   border-top: 0;
   border: 1px solid #ccc;
   width: 250px;
@@ -18,6 +22,9 @@ ul {
   background: #eed07d;
   transition: 0.5s;
 }
+.box-list ul li {
+  margin-bottom: 5px;
+}
 
 .box-list ul li a {
   list-style: none;
@@ -30,7 +37,7 @@ ul {
   color: #000;
   letter-spacing: normal;
   text-transform: none;
-  font-size: 130%;
+  font-size: 1.2rem;
 }
 
 h2.deal > span,
@@ -38,20 +45,21 @@ h4.deal > span {
   border-bottom: 6px solid rgb(180, 133, 46);
   padding: 0 20px 6px 10px;
   line-height: 1.3em;
-  font-weight: bold;
+
   font-size: 1.2em;
+
+  display: inline;
 }
 
 h2.deal,
 h4.deal {
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgb(180, 133, 46);
+
   padding-left: 0;
   padding-bottom: 6px;
-  height: auto;
+
   line-height: 1.3em;
-  font-weight: bold;
 }
 
 *,
@@ -62,6 +70,9 @@ h4.deal {
 
 div {
   display: block;
+}
+h5 {
+  font-weight: bold;
 }
 
 .h4 {
@@ -80,8 +91,8 @@ div {
 .books-flex {
   display: flex;
   flex-wrap: wrap;
-  max-width: 70%;
-  margin: 0 auto;
+
+  margin: 100px auto;
 }
 
 .book {
@@ -90,13 +101,13 @@ div {
   margin: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 3%;
-  background-color: white;
+  align-self: normal;
+  flex: 0 0 100%;
 }
 .book img {
-  width: 300px;
+  width: 100%;
   height: 400px;
   border-radius: 5% 5% 0 0;
-  object-fit: cover;
 }
 .info {
   padding: 10px;

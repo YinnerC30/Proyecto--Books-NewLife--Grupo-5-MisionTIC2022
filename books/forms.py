@@ -9,6 +9,7 @@ categorias_list = []
 for categoria in categorias:
     categorias_list.append(categoria)
 
+
 estados = [('Excelente', 'Excelente'),
            ('Bueno', 'Bueno'), ('Regular', 'Regular')]
 estados_list = []
@@ -52,9 +53,10 @@ class AddBookform(forms.ModelForm):
 
     autor = forms.CharField(max_length=200, label='', widget=forms.TextInput(
         attrs={'placeholder': 'Autor', 'class': 'form-input'}), )
-    libro_img = forms.ImageField(required=True)
+    libro_img = forms.ImageField(required=True, label='Portada del libro', widget=forms.FileInput(
+        attrs={'accept': ".png, .gif, .jpeg, .jpg", 'id': 'portada-input'}))
 
-    reseña = forms.CharField(label='',max_length=2000, widget=forms.Textarea(
+    reseña = forms.CharField(label='', max_length=2000, widget=forms.Textarea(
         attrs={'placeholder': 'Resumen o reseña corta...', 'class': 'form-input', 'style': 'resize:none;'}), )
 
     class Meta:
